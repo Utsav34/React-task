@@ -1,5 +1,5 @@
 import { Heading } from "../components/styles";
-import {Button, Counter} from "../components/index";
+import {Button, Counter, CounterTime} from "../components/index";
 import { Header } from "../module/index";
 const Dashboard = () =>{
     return(
@@ -8,6 +8,7 @@ const Dashboard = () =>{
         <Heading><marquee>Welcome to dashboard</marquee></Heading>
         <Button ButtonText= "click the Button" Buttonclass="variant" />
         <Counter/>
+        <CounterTime/>
         </>
     )
 }

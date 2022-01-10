@@ -27,6 +27,13 @@ class Counter extends React.Component{
    
    }
 
+//    Increment counter
+
+incrementCounter(){
+    this.setState({currentCount: this.state.count+1}, 1000);
+}
+
+
     render(){
         return(
             <>

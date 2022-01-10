@@ -45,7 +45,7 @@ align-items: center;
 
 // background-color: rgb(161 157 164);
 background-color: lightgreen;
-height: 50px;
+height: 70px;
 `
 export const Li = styled.li`
 list-style: none;
