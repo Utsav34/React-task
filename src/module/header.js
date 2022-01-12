@@ -8,9 +8,8 @@ const header = () =>{
                 <Li><a href="./Dashboard">Dashboard</a></Li>
                 <Li><a href="./Contact" >Contact</a></Li>
                 <Li><a href="/aboutUs">About us</a></Li>
-                <Li><a href="./Profile">logindata</a></Li>
+                <Li><a href="./LoginProfile">logindata</a></Li>
             </Ul>
-
         </>
     )
 }

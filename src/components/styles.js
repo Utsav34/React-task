@@ -65,49 +65,7 @@ margin-left: 450px;
  color : white;
  
 `
-// export const Stdhead  = styled.h1`
-// text-align : center;
-// font-size: 40px;
-// `
-
-// export const form = styled.div`
-// border: 3px solid #f1f1f1;   
-// `
-// export const container = styled.div`
-// padding: 25px;   
-// background-color: lightblue;  
-// `
-
-// export const DataField = styled.input`
-//         width: 30%;   
-//         margin: 8px 0;  
-//         padding: 12px 20px;   
-//         display: block;   
-//         border: 2px solid green;   
-//         box-sizing: border-box;   
-//         margin-left: 450px;
-//         background-color: lightwhite;
-//         `
-      //   export const Mybutton = styled.div`
-      //   // background-color: #4CAF50;   
-      //   background-color: black;
-      //  width: 5%;  
-      //   color: white;   
-      //   padding: 15px;   
-      //   margin: 10px 0px;   
-      //   border: none;   
-      //   cursor: pointer;  
-      //   margin-left: 450px; 
-      // 
-      
-      // `
-      // export const Mylabel = styled.div`
-      // margin-left: 450px;
-      // padding-top: 20px;
-      // `
-
-
-      export const Cbutton = styled.button`
+     export const Cbutton = styled.button`
      background-color: black;
       color:white;
       width: 110px;

@@ -8,7 +8,7 @@ const Contact =()=>{
     return(
         <>
         <Header/>
-<UserName>Enter your Name :</UserName>
+<UserName>Self Counter</UserName>
 {/* <Button ButtonText=" click the Button" Buttonclass="variant" /> */}
 <Selfcounter/>
 </>
