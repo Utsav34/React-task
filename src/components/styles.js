@@ -22,6 +22,7 @@ const Head = styled.div`
 export const UserName = styled.h1`
 color : blue;
 font-size : 25px;
+margin-left: 400px;
 `
 
 
@@ -90,4 +91,9 @@ margin-left: 450px;
               `
      export const Stdh1 = styled.h1`
      margin-left: 450px;
+     `
+
+     export const Myp = styled.p`
+     margin-left: 500px;
+     font-size: 40px;
      `

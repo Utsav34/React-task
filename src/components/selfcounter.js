@@ -1,19 +1,23 @@
 import React from "react";
+import {Myp} from "./styles"
+const   Selfcounter = () => {
+  const [state, setState] = React.useState({ num: 0 });
+  const counter = React.useRef(0);
+  
+  React.useEffect(() => {
+    if (counter.current < 20) {
+      counter.current += 1;
+      const timer = setTimeout(() => setState({ num: state.num + 1 }), 1000);
 
-function Selfcounter() {
-    const [CounterTime, setCounter] = React.useState(0);
-    React.useEffect(() => {
-      const timer = setInterval(() => {
-        setCounter(prevCount => prevCount + 1); 
-      }, 1000);
-      return () => {
-        clearInterval(timer);
-      };
+      return () => clearTimeout(timer);
+    }
+  }, [state]);
 
-    },); 
-    return (
-      <>Count: {CounterTime}</>
-    );
-  }
- 
-  export default Selfcounter;
+  return (
+    <div>
+      <Myp>{state.num}</Myp>
+    </div>
+  );
+};
+
+export default Selfcounter;
