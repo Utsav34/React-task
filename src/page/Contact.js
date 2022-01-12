@@ -8,7 +8,7 @@ const Contact =()=>{
     return(
         <>
         <Header/>
-<UserName>Self Counter</UserName>
+<UserName>Counter with self-initiating and stop at 20 </UserName>
 {/* <Button ButtonText=" click the Button" Buttonclass="variant" /> */}
 <Selfcounter/>
 </>
