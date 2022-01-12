@@ -7,7 +7,9 @@ function App() {
     eid:"f_karayannopoulops@klclawfirm.com",
     designation:"SENIOR ASSOCIATE",
     worksAs:"SUPREME COURT LAWYER",
-    admittedAt:"Admitted ti Athens Bar in 1992"
+    admittedAt:"Admitted ti Athens Bar in 1992",
+
+  heading: "Student Login Form"
     
   }
   return (

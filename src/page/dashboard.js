@@ -9,6 +9,7 @@ const Dashboard = () =>{
         <Button ButtonText= "click the Button" Buttonclass="variant" />
         <Counter/>
         <CounterTime/>
+       
         </>
     )
 }

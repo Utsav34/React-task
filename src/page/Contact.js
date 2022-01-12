@@ -1,6 +1,7 @@
 import {UserName} from "../components/styles";
 import { Header } from "../module/index";
 import {Button} from "../components/index";
+import Selfcounter from "../components/selfcounter";
 
 const Contact =()=>{
 
@@ -8,7 +9,8 @@ const Contact =()=>{
         <>
         <Header/>
 <UserName>Enter your Name :</UserName>
-<Button ButtonText=" click the Button" Buttonclass="variant" />
+{/* <Button ButtonText=" click the Button" Buttonclass="variant" /> */}
+<Selfcounter/>
 </>
 
     )
