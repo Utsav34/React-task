@@ -1,23 +1,27 @@
-import React from "react";
-import {Myp} from "./styles"
-const   Selfcounter = () => {
-  const [state, setState] = React.useState({ num: 0 });
-  const counter = React.useRef(0);
-  
-  React.useEffect(() => {
-    if (counter.current < 20) {
-      counter.current += 1;
-      const timer = setTimeout(() => setState({ num: state.num + 1 }), 1000);
-
-      return () => clearTimeout(timer);
+import { useEffect, useState } from "react";
+import {Counth1} from "./styles"
+const SelfCounter =()=>{
+    const [count,setCount] =useState(0);
+    const counter =()=>{
+        let y= 0;
+        const interval = setInterval(()=>{
+            if(y<20){
+                y= y+1;
+            }
+            else{
+                y=0
+                clearInterval(interval);
+            }
+            setCount(y);
+        },1000)
     }
-  }, [state]);
-
-  return (
-    <div>
-      <Myp>{state.num}</Myp>
-    </div>
-  );
-};
-
-export default Selfcounter;
+    useEffect(()=>{
+        counter();
+    },[])
+    return(
+        <>
+            <Counth1>{count} </Counth1>
+        </>
+    )
+}
+export default SelfCounter;
