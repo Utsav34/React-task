@@ -9,7 +9,7 @@ const LoginProfile = (props) =>{
         <>
           <Header/>
         <h3>Username :{LoginData.users.name} </h3>
-        <h3>password : {LoginData.users.Password}</h3>
+        <h3>password is: {LoginData.users.Password}</h3>
         </>
     )
 }
