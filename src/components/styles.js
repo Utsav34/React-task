@@ -22,7 +22,6 @@ const Head = styled.div`
 export const UserName = styled.h1`
 color : blue;
 font-size : 25px;
-margin-left: 400px;
 `
 
 
@@ -91,17 +90,4 @@ margin-left: 450px;
               `
      export const Stdh1 = styled.h1`
      margin-left: 450px;
-     `
-
-    //  export const Myp = styled.span`
-    //  margin-left: 600px;
-    //  font-size: 40px;
-    //  border: 2px solid blue;
-     
-    //  `
-     export const Counth1 = styled.span`
-     margin-left: 550px;
-     border: 2px solid blue;
-     font-size: 50px;
-     width: 30px;
      `
