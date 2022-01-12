@@ -1,6 +1,5 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
-// import  LoginProfile  from "./logindata";
 import { InputField, Mylabel, Stdh1, Cbutton } from '../components/styles';
 import { Header } from "../module";
 const LoginPage =()=>{
