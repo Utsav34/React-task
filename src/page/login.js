@@ -12,13 +12,14 @@ const LoginPage =()=>{
         }
     )
     let navigate = useNavigate();
-    const HandleChange =() =>{
+    const HandleChange =(e) =>{
       setUsers({
             ...users,
-            name:document.getElementById("name").value,
-            Password:document.getElementById("password").value,
+            [e.target.name]:e.target.value,
+            [e.target.Password]:e.target.value,
 
         })
+        console.log("usets", users);
     }
     let data = users;
     const redirectHandler =() =>{
@@ -31,9 +32,9 @@ const LoginPage =()=>{
              <div>
                  <Stdh1> Student Login Form </Stdh1>
              <Mylabel>Username:</Mylabel>
-             <InputField type="text" id="name" placeholder="Enter Username" onChange={HandleChange}/>  
+             <InputField type="text" name="name" placeholder="Enter Username" onChange={HandleChange}/>  
              <Mylabel>Password:</Mylabel> 
-             <InputField type="password" id="password" placeholder="Enter Password" onChange={HandleChange}  />  
+             <InputField type="password" name="password" placeholder="Enter Password" onChange={HandleChange}  />  
              <Cbutton onClick={redirectHandler}> Submit</Cbutton>
          </div>
         </>

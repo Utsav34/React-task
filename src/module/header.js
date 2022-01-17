@@ -9,6 +9,7 @@ const header = () =>{
                 <Li><a href="./Contact" >Contact</a></Li>
                 <Li><a href="/aboutUs">About us</a></Li>
                 <Li><a href="./LoginProfile">logindata</a></Li>
+                <Li><a href="./modal">Modal</a></Li>
             </Ul>
         </>
     )
