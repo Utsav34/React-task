@@ -7,9 +7,6 @@ const LoginProfile = () =>{
     const location = useLocation();
     let LoginData = location.state;
     let navigator = useNavigate();
-    // const redirectLogin = () => {
-    //     navigator('/')
-    // }
     return(
         <>
           <Header/>

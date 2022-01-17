@@ -5,7 +5,7 @@ const SelfCounter =()=>{
     const counter =()=>{
         let y= 0;
         const interval = setInterval(()=>{
-            if(y<3){
+            if(y<20){
                 y= y+1;
             }
 

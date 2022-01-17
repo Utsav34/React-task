@@ -1,7 +1,7 @@
 import { Heading } from "../components/styles";
 import {Button, Counter, CounterTime, Modal} from "../components/index";
 import { Header } from "../module/index";
-import { ModalPage } from ".";
+// import { ModalPage } from ".";
 import { useNavigate } from "react-router";
 const Dashboard = () =>{
     const navigation = useNavigate();
