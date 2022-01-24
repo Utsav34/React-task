@@ -4,3 +4,7 @@ export {default as Contact} from "./Contact";
 export {default as Login} from "./login";
 export {default as LoginProfile} from "./logindata";
 export {default as ModalPage} from "./modal";
+export {default as Signup} from "./signup";
+export {default as Loginup} from "./loginup";
+// export {default as Home} from "./home";
+// export {default as ThemeProvider} from "./theme";

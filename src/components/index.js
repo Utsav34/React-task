@@ -3,3 +3,8 @@ export {default as Counter} from "./counter";
 export {default as CounterTime} from "./timercount";
 export {default as Selfcounter} from "./selfcounter";
 export {default as PageError} from "./Error";
+export {default as Validation} from "./validation";
+export {default as Hello} from "./selectdrop";
+export {default as Demo} from "./demo";
+// export {default as Subtitle } from "./Subtitle";
+// export {default as PrivateRoute} from "./PrivateRoute";
