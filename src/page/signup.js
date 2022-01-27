@@ -1,10 +1,7 @@
-// import * as React from 'react';
-import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
-import { Header } from "../module/index";
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -13,87 +10,77 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useLocation, useNavigate} from "react-router";
 import { Validation  } from '../components/index';
-
+import ThemeContext from "./themecontext";
+import ThemeButton from "../components/themebutton";
 
 const Signup=()=>{
 
   // useEffect(()=>{
-  //   if(localStorage.getItem('userDetails')){
+  //   if(localStorage.getItem('registerData')){
   //     navigator('./signup')
   //   }
   // },[])
+const [values, setValues]= useState({
+  name: '',
+  email: '',
+  password: '',
+});
 
+const [errors, setErrors] = useState({ name: '', email: '', password:'',});
+const handleBlur=()=>{
+  console.log("signup ");
+  setErrors(Validation(values));
+}
+// const handleChange =(event) => {
+//   // console.log(event.target)
+//   setValues({
+//    ...values,
+//    [event.target.name]: event.target.value,
+//   });
+// };
+const themes=useContext(ThemeContext);
   const navigator = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-// const [values, setValues]= useState({
-//   name: "",
-//   email: "",
-//   password: "",
-// });
-
-// const [errors, setErrors]= useState({});
-
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // setErrors(Validation(values));
-    console.log(name, email, password);
-    const details = {name:name, email:email, password:password}
+    if(!errors.email&&!errors.password&&!errors.name){
+    // e.preventDefault();
+    const data = values;
 
-    let registerDetails = localStorage.getItem('userDetails');
-    if(registerDetails==null){
-      registerDetails=[]
-      registerDetails.push(details);
-      localStorage.setItem('userDetails',JSON.stringify(registerDetails))
+// getItem function use to retrieve data from LocalStorage
+    let signupData = localStorage.getItem('registerData');
+    if(signupData==null){
+      signupData=[]
+      signupData.push(data);
+      localStorage.setItem('registerData',JSON.stringify(signupData))
     }else{
-      let newDetail = JSON.parse(registerDetails)
-      newDetail.push(details)
+      let newDetail = JSON.parse(signupData)
+      newDetail.push(data)
       e.preventDefault();
-      localStorage.setItem("userDetails",JSON.stringify(newDetail))
-      const message = "Registered Successfully";
-      // // navigator('./l')
-      navigator('/loginup',{state:message})
+      localStorage.setItem("registerData",JSON.stringify(newDetail))
+     
     };
-
+    const message = "Signup Successfully";
+    navigator('/loginup',{state:message})
     }
-  
-
-    const handleClose=()=>{
-      setName('');
-      setEmail('');
-      setPassword('')
   }
   const paperStyle={padding: "10px 20px", width:350, margin:"0px auto"}
- 
   return (
  <>
-
- <Header/>
-
- 
-
-<Paper elevation={20} style={paperStyle} >
-{/* {" "}
-          {loginup ? ( */}
-     
-
-      <Container component="main" maxWidth="xs" onSubmit={handleSubmit}>
-      
+ {/* <Header/> */}
+<Paper elevation={20} style={paperStyle}  style={themes.theme} >
+      <Container component="main" maxWidth="xs" onSubmit={handleSubmit}  >
         <Box
           sx={{
             marginTop: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-          }}
-        >
-             
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-         
+          }}>
+             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           </Avatar>
-         
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
@@ -105,14 +92,17 @@ const Signup=()=>{
               id="name"
               label="Name"
               name="name"
-              value={name}
-             
-              onChange={e => setName(e.target.value)}
+              value={values.name}
+              onBlur={handleBlur}
+              onChange={(e)=>{
+                setValues({
+                  name: e.target.value,
+                  email:values.email,
+                  password: values.password
+                })}}
               autoComplete="name"
-              autoFocus
-            />
-               {/* {errors.name && <p className="error">{errors.name}</p>} */}
-
+              autoFocus/>
+               {errors.name && <p className="error">{errors.name}</p>}
             <TextField sx={{backgroundColor: 'lightgrey'}}
               margin="normal"
               required
@@ -120,18 +110,20 @@ const Signup=()=>{
               id="email"
               label="Email Address"
               name="email"
-              // validate={validateEmail}
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              value={values.email}
+              onBlur={handleBlur}
+              onChange={(e)=>{
+                setValues({
+                  name:values.name,
+                  email: e.target.value,
+                  password: values.password
+                })}} 
               autoComplete="email"
               autoFocus
             />
-           
-             {/* {errors.email && <p className="error">{errors.email}</p>} */}
+             {errors.email && <p className="error">{errors.email}</p>}
 
             <TextField sx={{backgroundColor: 'lightgrey'}}
-            
-            
               margin="normal"
               required
               fullWidth
@@ -139,47 +131,32 @@ const Signup=()=>{
               label="Password"
               type="password"
               id="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-             
-            
-              autoComplete="current-password"
-            />
-               {/* {errors.password && <p className="error">{errors.password}</p>} */}
-         
+              value={values.password}
+              onBlur={handleBlur}
+              onChange={(e)=>{
+                setValues({
+                  name:values.name,
+                  email:values.email,
+                  password: e.target.value,
+                })}}
+              autoComplete="current-password"/>
+               {errors.password && <p className="error">{errors.password}</p>}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-      
+              label="Remember me" />
             <Button
               type="submit"
-              
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-             
+              onClick={handleSubmit} 
+              sx={{ mt: 3, mb: 2 }} >
               Sign Up
             </Button>
-         
           </Box>
         </Box>
-      
-       
-
       </Container>
-     
-      </Paper>
- 
-{/* </form> */}
-
-                             
-</>
-          
-  
+      </Paper>                            
+</> 
   );
-
 }
-
 export default Signup;

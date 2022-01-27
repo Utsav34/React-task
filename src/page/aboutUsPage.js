@@ -6,10 +6,8 @@ const aboutUsPage =(props)=>{
 return(
    
     <div className="wrapper">
-  
         <Header/>
          <HeaderPart>
-           
            <ImgPrs>
            <img src="/Images/person.png" alt="image" width="250px"/>
            {/* <p>{props.data.eid}</p> */}
@@ -22,7 +20,6 @@ return(
                <h6>{props.data.admittedAt}</h6> */}
            </TextPart>
            </HeaderPart>
-       
     </div>
 )
 }

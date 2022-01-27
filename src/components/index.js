@@ -6,5 +6,6 @@ export {default as PageError} from "./Error";
 export {default as Validation} from "./validation";
 export {default as Hello} from "./selectdrop";
 export {default as Demo} from "./demo";
-// export {default as Subtitle } from "./Subtitle";
-// export {default as PrivateRoute} from "./PrivateRoute";
+export {default as ThemeButton} from "./themebutton";
+export {default as PrivateRoute} from "./PrivateRoute";
+export {default as PublicRoute} from "./PublicRoute";

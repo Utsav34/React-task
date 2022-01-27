@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Utsav",
+      "email": "utsavgoel242@gmail.com",
+      "phoneno": "7017581935"
+     
+    },
+    {
+      "id": 2,
+      "name": "madhur",
+      "email": "abc@gmail.com",
+      "phoneno": "9876346573"
+    },
+    {
+      "id": 3,
+      "name": "dheeraj",
+      "email": "xyz@gmail.com",
+      "phoneno": "9823434653"
+    }
+  ]
+}

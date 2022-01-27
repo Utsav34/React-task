@@ -2,7 +2,7 @@ import styled, {StyleComponents} from "styled-components";
 
 export const Heading = styled.h1`
     color:Blue;
-    text-align: center;
+    // text-align: center;
 `
 
 export let HeaderPart = styled.header` 
