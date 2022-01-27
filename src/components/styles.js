@@ -93,15 +93,43 @@ margin-left: 450px;
      margin-left: 450px;
      `
 
-    //  export const Myp = styled.span`
-    //  margin-left: 600px;
-    //  font-size: 40px;
-    //  border: 2px solid blue;
+     export const Myp = styled.span`
+     margin-left: 600px;
+     font-size: 40px;
+     border: 2px solid blue;
      
-    //  `
+     `
      export const Counth1 = styled.span`
      margin-left: 550px;
      border: 2px solid blue;
      font-size: 50px;
      width: 30px;
+     `
+
+     export const Mydiv = styled.div`
+     display: flex;
+     flex-direction: column;
+    // margin-left: 100px;
+    align-Items: center;
+     `
+
+     export const Mytext = styled.div`
+     color: blue;
+     font-weight: bold;
+     font-size: 20px;
+     `
+     export const Maindiv = styled.div`
+     color: blue;
+ 
+     display: flex;
+     flex-direction: column;
+    // margin-left: 200px;
+    align-Items: center;
+    padding-top: 20px;
+    margin-top: 20px;
+     `
+
+     export const Firstname = styled.input`
+     color: blue;
+  padding-top: 30px;
      `

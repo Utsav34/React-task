@@ -1,18 +1,21 @@
 import {UserName} from "../components/styles";
 import { Header } from "../module/index";
-import {Button} from "../components/index";
+import  {Hello, Demo} from "../components/index";
 import Selfcounter from "../components/selfcounter";
 
-const Contact =()=>{
+// import { useState } from "react";
 
+const Contact =()=>{
     return(
         <>
         <Header/>
+        <Hello/>
 <UserName>Counter with self-initiating and stop at 20 </UserName>
-{/* <Button ButtonText=" click the Button" Buttonclass="variant" /> */}
 <Selfcounter/>
-</>
+<Demo text="hello props"/>
+<Demo/>
 
-    )
+</>
+)   
 }
 export default Contact;

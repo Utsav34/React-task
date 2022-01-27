@@ -1,7 +1,7 @@
 import Router from './Router';
 
 
-function App() {
+function Apps() {
   const aboutDetail = {
     name:"Fotis Karayannopoulos",
     eid:"f_karayannopoulops@klclawfirm.com",
@@ -13,10 +13,10 @@ function App() {
     
   }
   return (
-    <div className="App" >
+    <>
       <Router persondata= {aboutDetail} />
-    </div>
+    </>
   );
 }
 
-export default App;
+export default Apps;

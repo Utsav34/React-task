@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import ThemeContext, {themes} from './components/themecontext'
+
+import { Contact } from './page';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <ThemeContext.Provider value={themes.dark}> */}
     <App />
+   {/* <Contact/> */}
+    {/* </ThemeContext.Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
