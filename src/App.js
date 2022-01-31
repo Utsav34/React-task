@@ -1,7 +1,10 @@
 import Router from './Router';
-
+import ThemeContext,{themes} from "./page/themecontext";
+import { useState } from "react";
 
 function Apps() {
+  const [theme,setTheme]=useState(themes.dark);
+  const value= {theme,setTheme}
   const aboutDetail = {
     name:"Fotis Karayannopoulos",
     eid:"f_karayannopoulops@klclawfirm.com",
@@ -14,7 +17,12 @@ function Apps() {
   }
   return (
     <>
+      <ThemeContext.Provider value={value} >
+      {/* <Router/> */}
+     
+    
       <Router persondata= {aboutDetail} />
+      </ThemeContext.Provider>
     </>
   );
 }

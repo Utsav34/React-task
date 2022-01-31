@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Utsav Goel SE",
+      "username": "UG",
+      "email": "UG@gmail.com",
+      "phone": "98763465100"
+    },
+    {
+      "name": "Krsna",
+      "username": "Murli",
+      "email": "abc@gmail.com",
+      "phone": "7017581935",
+      "id": 2
+    },
+    {
+      "name": "Mohan",
+      "username": "UG",
+      "email": "xyz@gmail.com",
+      "phone": "7500234567",
+      "id": 3
+    },
+    {
+      "name": "Hari",
+      "username": "hh",
+      "email": "xyz@gmail.com",
+      "phone": "9868493546",
+      "id": 4
+    }
+  ]
+}
