@@ -1,6 +1,5 @@
 import {Header} from "../module/index"
 import { HeaderPart,ImgPrs,TextPart,Section,List,MyArticle,ArticleHead } from '../components/styles';
-
 const aboutUsPage =(props)=>{
     console.log("data in about us",props)
 return(

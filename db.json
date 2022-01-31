@@ -1,23 +1,32 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "name": "Utsav",
-      "email": "utsavgoel242@gmail.com",
-      "phoneno": "7017581935"
-     
+      "name": "Utsav Goel SE",
+      "username": "UG",
+      "email": "UG@gmail.com",
+      "phone": "98763465100"
     },
     {
-      "id": 2,
-      "name": "madhur",
+      "name": "Krsna",
+      "username": "Murli",
       "email": "abc@gmail.com",
-      "phoneno": "9876346573"
+      "phone": "7017581935",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "dheeraj",
+      "name": "Mohan",
+      "username": "UG",
       "email": "xyz@gmail.com",
-      "phoneno": "9823434653"
+      "phone": "7500234567",
+      "id": 3
+    },
+    {
+      "name": "Hari",
+      "username": "hh",
+      "email": "xyz@gmail.com",
+      "phone": "9868493546",
+      "id": 4
     }
   ]
 }

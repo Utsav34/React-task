@@ -9,3 +9,6 @@ export {default as Demo} from "./demo";
 export {default as ThemeButton} from "./themebutton";
 export {default as PrivateRoute} from "./PrivateRoute";
 export {default as PublicRoute} from "./PublicRoute";
+export {default as Adduser} from "./adduser";
+export {default as Hooks} from "./hooks";
+export {default as Try} from "./try";

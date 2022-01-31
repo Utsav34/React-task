@@ -1,8 +1,10 @@
+import { Button } from "@material-ui/core";
 import styled, {StyleComponents} from "styled-components";
 
 export const Heading = styled.h1`
     color:Blue;
     // text-align: center;
+    
 `
 
 export let HeaderPart = styled.header` 
