@@ -6,5 +6,6 @@ export {default as LoginProfile} from "./logindata";
 export {default as ModalPage} from "./modal";
 export {default as Signup} from "./signup";
 export {default as Loginup} from "./loginup";
-// export {default as Home} from "./home";
-// export {default as ThemeProvider} from "./theme";
+export {default as Home} from "./home";
+export {default as EditUser} from "./editUser";
+// export {default as ThemeContext} from "./themecontext";

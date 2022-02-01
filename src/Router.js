@@ -1,6 +1,6 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import { Dashboard,AboutUs, Contact, Login, LoginProfile, ModalPage, Signup, Loginup } from "./page/index";
-import { PageError} from "./components/index";
+import { Dashboard,AboutUs, Contact, Login, LoginProfile, ModalPage, Signup, Loginup, EditUser } from "./page/index";
+import { PageError, PrivateRoute, PublicRoute} from "./components/index";
 // import { ThemeProvider } from "./page/theme";
 
 
@@ -19,21 +19,16 @@ const Router = (props) =>{
    
       {/* <ThemeProvider> */}
           <Route path="/login" element={<Login/>} />
-          <Route path="/" element={<ModalPage/>} />
+          <Route path="/modal" element={<ModalPage/>} />
           <Route path="/logindata" element={<LoginProfile />} />
 
-            <Route path="/Dashboard" element={<Dashboard/>} />
+            <Route path="/Dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/Contact/" element={<Contact/>} />
             <Route path="/aboutUs"  element={<AboutUs {...props} />} />
-            {/* <Route path="/home" element={
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
-          }
-        /> */}
-
-            <Route path="/signup" element={<Signup />} />
-          <Route path="/loginup" element={<Loginup />} />
+            {/* <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} /> */}
+            <Route exact path="/editUser/:id" element={<EditUser/>} />
+            <Route path="/" element={<PublicRoute><Signup /></PublicRoute>} />
+          <Route path="/loginup" element={ <PublicRoute><Loginup /></PublicRoute>} />
             <Route path="*" element={<PageError/>}/>
             {/* </ThemeProvider> */}
         </Routes>
