@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
-import {  useParams} from 'react-router-dom';
+import {  useParams, useNavigate} from 'react-router-dom';
 import { getUsers, editUser } from '../api/get';
 import React from 'react';
 const initialValue = {
-
     name: '',
     username: '',
     email: '',
     phone: ''
 }
-
 const useStyles = makeStyles({
     container: {
         width: '50%',
@@ -20,64 +18,45 @@ const useStyles = makeStyles({
         }
     }
 })
-
-const EditUser = ({initialValue}) => {
-    const id= initialValue.id;
-  
+const EditUser = () => {
     const [user, setUser] = useState(initialValue);
     const { name, username, email, phone } = user;
-    // const { id} = useParams();
+    const { id} = useParams();
     const classes = useStyles();
-    // let navigator = useNavigate();
-
+    let navigator = useNavigate();
     useEffect(() => {
         loadUserDetails();
     }, []);
-
     const loadUserDetails = async() => {
         const response = await getUsers(id);
         setUser(response.data);
     }
-    const [open, setOpen] = React.useState(false);
+    // const [open, setOpen] = React.useState(false);
     const editUserDetails = async() => {
         // e.preventDefault();
-        // setOpen(true);
         const response = await editUser(id, user);
-       
-        // navigator.push('/alluser');
+        navigator('/dashboard');
+        // setOpen(true);
+        // console.log("editUser") 
     }
-
     const onValueChange = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         console.log(e.target.value);
         setUser({...user, [e.target.name]: e.target.value})
     }
-
     return (
         <FormGroup className={classes.container}>
             <Typography variant="h4">Edit Information</Typography>
-            <FormControl>
                 <InputLabel htmlFor="my-input">Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
                 <InputLabel htmlFor="my-input">Username</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
                 <InputLabel htmlFor="my-input">Email</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
                 <InputLabel htmlFor="my-input">Phone</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
-                
                 <Button variant="contained" color="primary" onClick={() => editUserDetails()}>Edit User</Button>
-            </FormControl>
         </FormGroup>
     )
 }
-
 export default EditUser;

@@ -26,7 +26,7 @@ const Router = (props) =>{
             <Route path="/Contact/" element={<Contact/>} />
             <Route path="/aboutUs"  element={<AboutUs {...props} />} />
             {/* <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} /> */}
-            {/* <Route exact path="/editUser/:id" element={<EditUser/>} /> */}
+            <Route exact path="/editUser/:id" element={<EditUser/>} />
             <Route path="/" element={<PublicRoute><Signup /></PublicRoute>} />
           <Route path="/loginup" element={ <PublicRoute><Loginup /></PublicRoute>} />
             <Route path="*" element={<PageError/>}/>

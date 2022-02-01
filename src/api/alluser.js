@@ -1,10 +1,8 @@
 import react, { useState, useEffect } from 'react';
 import { Table, TableHead, TableCell, Paper, TableRow, TableBody, Button, makeStyles } from '@material-ui/core'
-import { getUsers, deleteUser } from './get';
+import { getUsers, deleteUser, editUser } from './get';
 import Dialog from '@mui/material/Dialog';
-import {Try} from '../components/try'
 import React from 'react'
-import {EditUser} from '../page/index';
 import { Link } from 'react-router-dom';
 // import { Modal} from 'react-bootstrap';
 import { Modal} from 'react-bootstrap';
@@ -26,8 +24,6 @@ const useStyles = makeStyles({
         }
     }
 })
-
-
 const AllUsers = (user) => {
     const [users, setUsers] = useState([]);
     const classes = useStyles();
@@ -45,17 +41,14 @@ const AllUsers = (user) => {
         let response = await getUsers();
         setUsers(response.data);
     }
-
-
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
+        // console.log("hello");
         setOpen(true);
       };
       const handleClose = () => {
         setOpen(false);
       };
-    
-
     return (
         <div>
         <Table className={classes.table}>
@@ -77,33 +70,26 @@ const AllUsers = (user) => {
                         <TableCell>{user.username}</TableCell>
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.phone}</TableCell>
-                        <TableCell>
-                            
-                            <Button color="primary"  onClick={ handleClickOpen}  variant="contained" data-toggle="modal" style={{marginRight:10}} >Edit</Button>
+                        <TableCell>     
+                            {/* <Button color="primary"  onClick={ handleClickOpen}  variant="contained" data-toggle="modal" style={{marginRight:10}} >Edit</Button> */}
+                            <Button color="primary"  component={Link} to={`/editUser/${user.id}`}  variant="contained" data-toggle="modal" style={{marginRight:10}} >Edit</Button>
                             <Button color="secondary" variant="contained" onClick={() => deleteUserData(user.id)}>Delete</Button> 
-                      
-                       
-
-
                         </TableCell>
                     </TableRow>
                 ))}
             </TableBody>
         </Table>
-
-<Modal show={open} onHide={handleClose}>
+{/* <Modal show={open} onHide={handleClose}>
 <Modal.Body>
-    <EditUser initialValue={user} />
+    <EditUser editUser={user.id}/>
 </Modal.Body>
 <Modal.Footer>
         <Button  color="secondary" variant="contained"  onClick={handleClose}>
             Close Button
         </Button>
 </Modal.Footer>
-</Modal>
-
+</Modal> */}
 </div>
     )
 }
-
 export default AllUsers;
