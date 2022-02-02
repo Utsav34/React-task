@@ -1,13 +1,15 @@
+import { Button } from "@material-ui/core";
 import styled, {StyleComponents} from "styled-components";
 
 export const Heading = styled.h1`
     color:Blue;
-    text-align: center;
+    // text-align: center;
+    
 `
 
 export let HeaderPart = styled.header` 
 
-background-color: rgb(99,110,132);
+background-color: rgb(99,110,160);
 // background-color : green;
 
 height: 350px;

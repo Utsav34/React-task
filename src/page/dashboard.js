@@ -1,12 +1,15 @@
 import { Heading } from "../components/styles";
-import {Button, Counter, CounterTime, Modal} from "../components/index";
 import { Header } from "../module/index";
 import { useLocation } from "react-router";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { Adduser} from "../components/index";
+import AllUsers from "../api/alluser";
 
+const Dashboard =()=>{
+    const location = useLocation();
+    const myName =location.state
+    console.log(location)
 
-const Dashboard = () =>{
- 
         // const location = useLocation();
         // let myData = location.state;
         // let navigator = useNavigate();
@@ -17,14 +20,18 @@ const Dashboard = () =>{
     return(
         <>
         <Header/>
+        
         <Heading><marquee>Welcome to dashboard</marquee></Heading>
-        <Button  ButtonText= "click the Button" Buttonclass="variant"/>
-        <button onClick={()=>navigation('/')}>goto Modal Page</button>
-        <Counter/>
-        <CounterTime/>  
-        {/* <button onClick={redirectLogin}>Logout</button> */}
+        <Adduser/>
+        <AllUsers/>
+        {/* <Try/> */}
+        
+        {/* <Get/> */}
+        {/* <Button  ButtonText= "click the Button" Buttonclass="variant"/>
+        <button onClick={()=>navigation('/')}>goto Modal Page</button> */}
+        {/* <Counter/>
+        <CounterTime/>   */}
         </>
     )
 }
-
 export default Dashboard;

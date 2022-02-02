@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "name": "Utsav Goel",
+      "username": "UG",
+      "email": "utsav.goel@successive.tech",
+      "phone": "7017581935",
+      "id": 1
+    },
+    {
+      "name": "Ram",
+      "username": "UG",
+      "email": "abc@gmail.com",
+      "phone": "8633546473",
+      "id": 2
+    },
+    {
+      "name": "Mohan",
+      "username": "Hare",
+      "email": "xyz@gmail.com",
+      "phone": "9876346551",
+      "id": 3
+    },
+    {
+      "name": "Krsna",
+      "username": "HK",
+      "email": "ac@gmail.com",
+      "phone": "7500234532",
+      "id": 4
+    },
+    {
+      "name": "Ramesh",
+      "username": "RG",
+      "email": "abc@gmail.com",
+      "phone": "9876346510",
+      "id": 5
+    }
+  ]
+}
