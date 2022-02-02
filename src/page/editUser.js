@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
-import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
-import {  useParams, useNavigate} from 'react-router-dom';
-import { getUsers, editUser } from '../api/get';
 import React from 'react';
+import { useState, useEffect } from 'react';
+import {  useParams, useNavigate} from 'react-router-dom';
+import { FormGroup,  InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
+import { getUsers, editUser } from '../api/get';
+
 const initialValue = {
     name: '',
     username: '',
@@ -25,24 +26,19 @@ const EditUser = () => {
     const classes = useStyles();
     let navigator = useNavigate();
     useEffect(() => {
-        loadUserDetails();
+    loadUserDetails();
     }, []);
     const loadUserDetails = async() => {
-        const response = await getUsers(id);
-        setUser(response.data);
+    const response = await getUsers(id);
+    setUser(response.data);
     }
-    // const [open, setOpen] = React.useState(false);
     const editUserDetails = async() => {
-        // e.preventDefault();
-        const response = await editUser(id, user);
-        navigator('/dashboard');
-        // setOpen(true);
-        // console.log("editUser") 
+    const response = await editUser(id, user);
+    navigator('/dashboard'); 
     }
     const onValueChange = (e) => {
-        // e.preventDefault();
-        console.log(e.target.value);
-        setUser({...user, [e.target.name]: e.target.value})
+    console.log(e.target.value);
+    setUser({...user, [e.target.name]: e.target.value})
     }
     return (
         <FormGroup className={classes.container}>

@@ -1,8 +1,6 @@
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { Header } from "../module";
-import { useNavigate } from "react-router-dom"
-
-
 const LoginProfile = () =>{
     const location = useLocation();
     let LoginData = location.state;

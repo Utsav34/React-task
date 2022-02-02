@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
+import { useLocation, useNavigate} from "react-router";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -8,47 +9,29 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { useLocation, useNavigate} from "react-router";
-import { Validation  } from '../components/index';
+import { Validation  } from '../components';
 import ThemeContext from "./themecontext";
 import ThemeButton from "../components/themebutton";
 
 const Signup=()=>{
-
-  // useEffect(()=>{
-  //   if(localStorage.getItem('registerData')){
-  //     navigator('./signup')
-  //   }
-  // },[])
 const [values, setValues]= useState({
   name: '',
   email: '',
   password: '',
 });
-
 const [errors, setErrors] = useState({ name: '', email: '', password:'',});
 const handleBlur=()=>{
   console.log("signup ");
   setErrors(Validation(values));
 }
-// const handleChange =(event) => {
-//   // console.log(event.target)
-//   setValues({
-//    ...values,
-//    [event.target.name]: event.target.value,
-//   });
-// };
 const themes=useContext(ThemeContext);
   const navigator = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSubmit = (e) => {
     if(!errors.email&&!errors.password&&!errors.name){
-    // e.preventDefault();
     const data = values;
-
 // getItem function use to retrieve data from LocalStorage
     let signupData = localStorage.getItem('registerData');
     if(signupData==null){
@@ -59,8 +42,7 @@ const themes=useContext(ThemeContext);
       let newDetail = JSON.parse(signupData)
       newDetail.push(data)
       e.preventDefault();
-      localStorage.setItem("registerData",JSON.stringify(newDetail))
-     
+      localStorage.setItem("registerData",JSON.stringify(newDetail))   
     };
     const message = "Signup Successfully";
     navigator('/loginup',{state:message})
@@ -69,7 +51,6 @@ const themes=useContext(ThemeContext);
   const paperStyle={padding: "10px 20px", width:350, margin:"0px auto"}
   return (
  <>
- {/* <Header/> */}
 <Paper elevation={20} style={paperStyle}  style={themes.theme} >
       <Container component="main" maxWidth="xs" onSubmit={handleSubmit}  >
         <Box
@@ -122,7 +103,6 @@ const themes=useContext(ThemeContext);
               autoFocus
             />
              {errors.email && <p className="error">{errors.email}</p>}
-
             <TextField sx={{backgroundColor: 'lightgrey'}}
               margin="normal"
               required

@@ -1,9 +1,9 @@
-import {Header} from "../module/index"
-import { HeaderPart,ImgPrs,TextPart,Section,List,MyArticle,ArticleHead } from '../components/styles';
+import React from 'react'
+import {Header} from "../module";
+import { HeaderPart,ImgPrs,TextPart } from '../components/styles';
 const aboutUsPage =(props)=>{
     console.log("data in about us",props)
 return(
-   
     <div className="wrapper">
         <Header/>
          <HeaderPart>
@@ -22,5 +22,4 @@ return(
     </div>
 )
 }
-
 export default aboutUsPage;

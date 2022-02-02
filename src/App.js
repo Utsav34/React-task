@@ -1,7 +1,6 @@
+import { useState } from "react";
 import Router from './Router';
 import ThemeContext,{themes} from "./page/themecontext";
-import { useState } from "react";
-
 function Apps() {
   const [theme,setTheme]=useState(themes.dark);
   const value= {theme,setTheme}
@@ -11,20 +10,15 @@ function Apps() {
     designation:"SENIOR ASSOCIATE",
     worksAs:"SUPREME COURT LAWYER",
     admittedAt:"Admitted ti Athens Bar in 1992",
-
-  heading: "Student Login Form"
-    
-  }
+    heading: "Student Login Form"  
+   }
   return (
     <>
       <ThemeContext.Provider value={value} >
       {/* <Router/> */}
-     
-    
       <Router persondata= {aboutDetail} />
       </ThemeContext.Provider>
     </>
   );
 }
-
 export default Apps;

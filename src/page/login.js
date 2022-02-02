@@ -1,36 +1,32 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
-// import  LoginProfile  from "./logindata";
 import { InputField, Mylabel, Stdh1, Cbutton } from '../components/styles';
 import { Header } from "../module";
 const LoginPage =()=>{
-
-    const [users,setUsers] =useState(
-        {
-            name: "",
-            Password:"",
-        }
-    )
-    let navigate = useNavigate();
-    const HandleChange =(e) =>{
-      setUsers({
-            ...users,
-            [e.target.name]:e.target.value,
-            [e.target.Password]:e.target.value,
-
-        })
-        console.log("usets", users);
-    }
-    let data = users;
+const [users,setUsers] =useState(
+{
+ name: "",
+ Password:"",
+}
+)
+let navigate = useNavigate();
+const HandleChange =(e) =>{
+setUsers({
+ ...users,
+[e.target.name]:e.target.value,
+[e.target.Password]:e.target.value,
+})
+console.log("usets", users);
+}
+ let data = users;
     const redirectHandler =() =>{
-        navigate('/logindata',{state: {users}})
+    navigate('/logindata',{state: {users}})
     }
-
     return(
         <>
         <Header/>
              <div>
-                 <Stdh1> Student Login Form </Stdh1>
+            <Stdh1> Student Login Form </Stdh1>
              <Mylabel>Username:</Mylabel>
              <InputField type="text" name="name" placeholder="Enter Username" onChange={HandleChange}/>  
              <Mylabel>Password:</Mylabel> 
@@ -40,5 +36,4 @@ const LoginPage =()=>{
         </>
     )
 }
-
 export default LoginPage;

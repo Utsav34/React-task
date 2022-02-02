@@ -11,4 +11,4 @@ export {default as PrivateRoute} from "./PrivateRoute";
 export {default as PublicRoute} from "./PublicRoute";
 export {default as Adduser} from "./adduser";
 export {default as Hooks} from "./hooks";
-export {default as Try} from "./try";
+

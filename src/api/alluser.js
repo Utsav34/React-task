@@ -1,11 +1,9 @@
-import react, { useState, useEffect } from 'react';
-import { Table, TableHead, TableCell, Paper, TableRow, TableBody, Button, makeStyles } from '@material-ui/core'
-import { getUsers, deleteUser, editUser } from './get';
-import Dialog from '@mui/material/Dialog';
 import React from 'react'
 import { Link } from 'react-router-dom';
-// import { Modal} from 'react-bootstrap';
-import { Modal} from 'react-bootstrap';
+import react, { useState, useEffect } from 'react';
+import { Table, TableHead, TableCell, TableRow, TableBody, Button, makeStyles } from '@material-ui/core'
+import { getUsers, deleteUser, editUser } from './get';
+
 const useStyles = makeStyles({
     table: {
         width: '90%',
@@ -31,24 +29,14 @@ const AllUsers = (user) => {
     useEffect(() => {
         getAllUsers();
     }, []);
-
     const deleteUserData = async (id) => {
         await deleteUser(id);
         getAllUsers();
     }
-
     const getAllUsers = async () => {
         let response = await getUsers();
         setUsers(response.data);
     }
-    const [open, setOpen] = React.useState(false);
-    const handleClickOpen = () => {
-        // console.log("hello");
-        setOpen(true);
-      };
-      const handleClose = () => {
-        setOpen(false);
-      };
     return (
         <div>
         <Table className={classes.table}>
@@ -64,31 +52,20 @@ const AllUsers = (user) => {
             </TableHead>
             <TableBody>
                 {users.map((user) => (
-                    <TableRow className={classes.row} key={user._id}>
+                    <TableRow className={classes.row} key={user.id}>
                         <TableCell>{user.id}</TableCell>
                         <TableCell>{user.name}</TableCell>
                         <TableCell>{user.username}</TableCell>
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.phone}</TableCell>
                         <TableCell>     
-                            {/* <Button color="primary"  onClick={ handleClickOpen}  variant="contained" data-toggle="modal" style={{marginRight:10}} >Edit</Button> */}
-                            <Button color="primary"  component={Link} to={`/editUser/${user.id}`}  variant="contained" data-toggle="modal" style={{marginRight:10}} >Edit</Button>
-                            <Button color="secondary" variant="contained" onClick={() => deleteUserData(user.id)}>Delete</Button> 
+                        <Button color="primary"  component={Link} to={`/editUser/${user.id}`}  variant="contained" data-toggle="modal" style={{marginRight:10}} >Edit</Button>
+                        <Button color="secondary" variant="contained" onClick={() => deleteUserData(user.id)}>Delete</Button> 
                         </TableCell>
-                    </TableRow>
+                        </TableRow>
                 ))}
             </TableBody>
         </Table>
-{/* <Modal show={open} onHide={handleClose}>
-<Modal.Body>
-    <EditUser editUser={user.id}/>
-</Modal.Body>
-<Modal.Footer>
-        <Button  color="secondary" variant="contained"  onClick={handleClose}>
-            Close Button
-        </Button>
-</Modal.Footer>
-</Modal> */}
 </div>
     )
 }

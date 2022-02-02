@@ -1,6 +1,5 @@
 import React , {useState, useEffect} from "react";
 import useTitle from "./useTitle";
-
 const Hooks =()=>{
     const [count, setCount]=useState(0)
     useTitle(count)
@@ -14,5 +13,4 @@ const Hooks =()=>{
         </>
     );
 };
-
 export default Hooks;

@@ -1,10 +1,9 @@
+import {useContext} from "react";
 import ThemeContext, { themes } from "../page/themecontext";
-import { useContext, useState } from "react";
 const ThemeButton = () => {
     const { theme, setTheme } = useContext(ThemeContext)
-
     const toggleTheme = () => {
-        theme == themes.dark ? setTheme(themes.light) : setTheme(themes.dark);
+    theme == themes.dark ? setTheme(themes.light) : setTheme(themes.dark);
     }
     return (
         <>

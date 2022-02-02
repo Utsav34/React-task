@@ -4,16 +4,12 @@ const Button = (props) =>{
      <>
         <Btn color="black">{props.ButtonText}</Btn><br/><br/>
         {/* <Btn color="Green">{props.ButtonText}</Btn> */}
-
         {/* <div>
             {
                 <Loginbtn color="black">{props.Buttontype}</Loginbtn>
             }
         </div> */}
-       
      </>
     )
 }
-
-
 export default Button;

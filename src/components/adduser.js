@@ -1,9 +1,8 @@
-import react, { useState } from 'react';
 import React from 'react'
-import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
-import { addUser } from '../api/get';
-import {AllUsers} from '../api/alluser'
+import react, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FormGroup, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
+import { addUser } from '../api/get';
 import Dialog from '@mui/material/Dialog';
 const initialValue = {
 name: '',
@@ -25,13 +24,10 @@ const [user, setUser] = useState(initialValue);
 const { name, username, email, phone } = user;
 const classes = useStyles();
 let navigator = useNavigate();
-
 const onValueChange = (e) => {
-  e.preventDefault();
 console.log(e.target.value);
 setUser({...user, [e.target.name]: e.target.value})
 }
-
 const addUserDetails = async(e) => {
   setOpen(false);
 await addUser(user);
@@ -44,7 +40,6 @@ const handleClickOpen = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
 return (
   <div>
        <Button  variant="contained" color="primary"  onClick={handleClickOpen}>
@@ -61,12 +56,11 @@ return (
 <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input"/>
 <InputLabel htmlFor="my-input">Phone</InputLabel>
 <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" />
-<Button variant="contained" color="primary"  style={{margin:10}} onClick={() => addUserDetails()}>Add User</Button>
+<Button variant="contained" disabled={!name || !username || !email || !phone} color="primary"  style={{margin:10}} onClick={() => addUserDetails()}>Add User</Button>
 <Button color="secondary" variant="contained" style={{margin:10}} onClick={handleClose}>Cancel</Button>
 </FormGroup>
 </Dialog>
 </div>
 )
 }
-
 export default Adduser;

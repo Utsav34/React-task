@@ -1,20 +1,17 @@
+import React from "react";
 import {UserName} from "../components/styles";
-import { Header } from "../module/index";
-import  {Hello, Demo} from "../components/index";
-import Selfcounter from "../components/selfcounter";
-
-// import { useState } from "react";
-
+import { Header } from "../module";
+import  {Hello, Demo} from "../components";
+import {Selfcounter} from "../components";
 const Contact =()=>{
-    return(
-        <>
-        <Header/>
-        <Hello/>
+return(
+ <>
+<Header/>
+<Hello/>
 <UserName>Counter with self-initiating and stop at 20 </UserName>
 <Selfcounter/>
 <Demo text="hello props"/>
 <Demo/>
-
 </>
 )   
 }

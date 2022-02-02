@@ -1,51 +1,34 @@
-// import * as React from 'react';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from "react-router";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
-import { Header } from "../module/index";
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-// import { Dashboard, Contact, AboutUs } from '../page/index';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Validation  } from '../components/index';
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from "react-router";
+import { Validation  } from '../components';
 
 const Loginup=(props)=>{
- 
-  // useEffect(()=>{
-  //   if(localStorage.getItem('registerData')){
-  //     navigator.push('./dashboard')
-  //   }
-  // },[])
-
-const onSubmit = ()=>{
-  props.navigator.push('./dashboard')
-}
-  const [email,setEmail] =useState();
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
+const [email,setEmail] =useState();
+const [values, setValues] = useState({
+email: "",
+password: "",
   })
   const [errors,setErrors]=useState({});
   const navigator = useNavigate();
   const loc = useLocation();
   const message = loc.state;
-
   const handleBlur=()=>{
-    console.log(" blur")
+    console.log(" blurmesg")
     setErrors(Validation(values));
   }
-
   const registerData = localStorage.getItem("registerData")
   console.log("get",registerData)
-
-
     const handleSubmit = (e) => {
       e.preventDefault();
       if (!errors.email&& !errors.password) {
@@ -76,7 +59,6 @@ const onSubmit = ()=>{
   const paperStyle={padding: "10px 20px", width:350, margin:"0px auto"}
   return (
  <>
- {/* <Header/> */}
 <Paper elevation={20} style={paperStyle} >
       <Container component="main" maxWidth="xs" onSubmit={handleSubmit}>
       <h1>{message}</h1>
@@ -86,8 +68,7 @@ const onSubmit = ()=>{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-          }} >
-            
+          }} > 
           <Avatar sx={{ m: 2, bgcolor: 'blue' }}>
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -104,8 +85,6 @@ const onSubmit = ()=>{
               value={values.email}
               onBlur={handleBlur}
               onChange={onEmailChange}
-              // value={email}
-              // onChange={e => setEmail(e.target.value)}
               autoComplete="email"
               autoFocus/>
                 {errors.email && <p>{errors.email}</p>}
@@ -140,7 +119,6 @@ const onSubmit = ()=>{
                   Forgot password?
                 </Link>
               </Grid>
-         
               <Grid item>
                 <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
